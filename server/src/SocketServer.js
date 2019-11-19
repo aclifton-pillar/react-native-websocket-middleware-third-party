@@ -19,6 +19,7 @@ class SocketServer {
         this._wss.emit('connection', ws, request);
       });
     });
+    setInterval(this.sendTime.bind(this), 1000);
   }
 
   disconnect(sender) {
