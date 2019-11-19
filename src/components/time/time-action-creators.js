@@ -1,4 +1,5 @@
 import {connect} from "@giantmachines/redux-websocket/dist";
+import {Platform} from 'react-native';
 
 export const getTime = () => {
     return dispatch => {
@@ -17,7 +18,7 @@ export const startSocket = () => {
 
 export const startAutoTime = () => {
     return dispatch => {
-        dispatch(connect("ws://10.0.2.2:3000"));
+        dispatch(connect(Platform.OS === 'ios' ? "ws://localhost:3000": "ws://10.0.2.2:3000"));
         return null;
     }
 };
